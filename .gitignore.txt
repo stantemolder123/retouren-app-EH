@@ -1,0 +1,6 @@
+/AppData/
+/Local/
+/Application Data/
+/node_modules/
+*.log
+*.tmp
