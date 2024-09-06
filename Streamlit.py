@@ -73,16 +73,18 @@ def import_excel_files(directory_path, tarieven_file_path, directory_path_output
 
     return input_data, all_data
 
-st.title("Excel Data Processing")
+st.title("EH retouren app")
+st.title("Welcome")
+print("check")
 
 input_directory_path = st.text_input("Input Directory Path")
-tarieven_file_path = st.text_input("Tarieven File Path")
+tarieven_file = st.file_uploader("Upload Tarieven File", type=["xlsx", "xls"])
 output_directory_path = st.text_input("Output Directory Path")
 
 if st.button("Execute"):
-    if input_directory_path and tarieven_file_path and output_directory_path:
+    if input_directory_path and tarieven_file and output_directory_path:
         directory_path_output = os.path.join(output_directory_path, "output_combined_data.xlsx")
-        combined_data = import_excel_files(input_directory_path, tarieven_file_path, directory_path_output)
+        combined_data = import_excel_files(input_directory_path, tarieven_file, directory_path_output)
         st.success("Script executed successfully. New Excel file created.")
     else:
         st.error("Please provide input directory, tarieven file, and output directory.")
